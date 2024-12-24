@@ -8,7 +8,7 @@ export default function ChatWidget() {
   return (
     <>
       <ChatButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-      <ChatInterface isOpen={isOpen} />
+      <ChatInterface isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
 }

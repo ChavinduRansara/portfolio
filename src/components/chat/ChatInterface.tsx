@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send } from 'lucide-react';
+import { Send, X } from 'lucide-react';
 import ChatMessage from './ChatMessage';
 
 interface Message {
@@ -9,9 +9,10 @@ interface Message {
 
 interface ChatInterfaceProps {
   isOpen: boolean;
+  onClose: () => void;
 }
 
-export default function ChatInterface({ isOpen }: ChatInterfaceProps) {
+export default function ChatInterface({ isOpen, onClose }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([
     { content: "Hi! I'm John's AI assistant. How can I help you today?", isBot: true }
   ]);
@@ -30,10 +31,8 @@ export default function ChatInterface({ isOpen }: ChatInterfaceProps) {
     e.preventDefault();
     if (!input.trim()) return;
 
-    // Add user message
     setMessages(prev => [...prev, { content: input, isBot: false }]);
     
-    // Simulate AI response (replace with actual AI integration)
     setTimeout(() => {
       setMessages(prev => [...prev, {
         content: "Thanks for your message! This is a placeholder response. Integrate your AI service here.",
@@ -47,10 +46,16 @@ export default function ChatInterface({ isOpen }: ChatInterfaceProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-24 right-6 w-96 h-[500px] bg-gray-800 rounded-lg shadow-xl flex flex-col z-50">
+    <div className="fixed md:bottom-24 md:right-6 md:w-96 w-full h-[100dvh] md:h-auto md:max-h-[calc(100vh-120px)] md:min-h-[400px] inset-0 md:inset-auto bg-gray-800 md:rounded-lg shadow-xl flex flex-col z-50">
       {/* Header */}
-      <div className="p-4 border-b border-gray-700">
+      <div className="p-4 border-b border-gray-700 flex justify-between items-center">
         <h3 className="text-lg font-semibold text-white">Chat with AI Assistant</h3>
+        <button 
+          onClick={onClose}
+          className="md:hidden text-gray-400 hover:text-white transition-colors"
+        >
+          <X size={24} />
+        </button>
       </div>
 
       {/* Messages */}
