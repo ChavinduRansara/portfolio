@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
+import ChatWidget from './components/chat/ChatWidget';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <p>© {new Date().getFullYear()} John Doe. All rights reserved.</p>
         </div>
       </footer>
+      <ChatWidget />
     </div>
   );
 }
