@@ -1,6 +1,6 @@
-import { Github, ExternalLink, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Project } from './types';
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Project } from "./types";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -13,8 +13,12 @@ export default function ProjectCard({ project }: { project: Project }) {
         />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 text-justify">
+          {project.description}
+        </p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag) => (
             <span
@@ -27,31 +31,37 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <Link
-            to={`/project/${project.slug}`}
-            className="flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
-          >
-            View Details
-            <ArrowRight size={20} className="ml-2" />
-          </Link>
+          {project.details && (
+            <Link
+              to={`/project/${project.slug}`}
+              className="flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+            >
+              View Details
+              <ArrowRight size={20} className="ml-2" />
+            </Link>
+          )}
           <div className="flex gap-4 ml-auto">
             {project.github && (
-                <a
-                    href={project.github}
-                    className="flex items-center text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                    <Github size={20} className="mr-2" />
-                    Code
-                </a>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              >
+                <Github size={20} className="mr-2" />
+                Code
+              </a>
             )}
             {project.live && (
-                <a
-                    href={project.live}
-                    className="flex items-center text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                    <ExternalLink size={20} className="mr-2" />
-                    Demo
-                </a>
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              >
+                <ExternalLink size={20} className="mr-2" />
+                Demo
+              </a>
             )}
           </div>
         </div>

@@ -85,7 +85,7 @@ export default function ProjectDetailsPage() {
                 Project Documentation
               </h2>
               <iframe
-                src= {project.pdf}
+                src={project.pdf}
                 title="Project Documentation"
                 className="w-full h-[600px] border rounded-lg"
               ></iframe>
@@ -94,20 +94,24 @@ export default function ProjectDetailsPage() {
         </div>
 
         <div className="flex gap-4">
-          <a
-            href={project.github}
-            className="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
-          >
-            <Github size={20} className="mr-2" />
-            View Code
-          </a>
-          <a
-            href={project.live}
-            className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-          >
-            <ExternalLink size={20} className="mr-2" />
-            Live Demo
-          </a>
+          {project.github && (
+            <a
+              href={project.github}
+              className="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              <Github size={20} className="mr-2" />
+              Source Code
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-colors"
+            >
+              <ExternalLink size={20} className="mr-2" />
+              Live Demo
+            </a>
+          )}
         </div>
       </div>
     </main>
