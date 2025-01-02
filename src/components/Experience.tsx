@@ -2,25 +2,12 @@ import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
-    company: 'Tech Corp',
-    position: 'Senior Frontend Developer',
-    period: '2021 - Present',
-    description: 'Led the development of multiple high-impact web applications, improving user engagement by 40%.',
-    technologies: ['React', 'TypeScript', 'GraphQL'],
-  },
-  {
-    company: 'Digital Solutions Inc',
-    position: 'Full Stack Developer',
-    period: '2019 - 2021',
-    description: 'Developed and maintained various client projects, focusing on scalable architecture and performance optimization.',
-    technologies: ['Node.js', 'React', 'PostgreSQL'],
-  },
-  {
-    company: 'StartUp Hub',
-    position: 'Junior Developer',
-    period: '2018 - 2019',
-    description: 'Contributed to the development of innovative web applications and learned modern development practices.',
-    technologies: ['JavaScript', 'Vue.js', 'Express'],
+    company: 'CodeGen International (Pvt) Ltd',
+    companyURL : 'https://codegen.co.uk/',
+    position: 'Software Engineer Internship',
+    period: 'Dec 2023 - Jun 2024',
+    description: 'Completed a full-stack development internship at CodeGen International, contributing to a client project and gaining experience in agile methodologies and modern web technologies.',
+    technologies: ['Angular', 'Spring Boot', 'Oracle SQL Developer'],
   },
 ];
 
@@ -48,7 +35,7 @@ export default function Experience() {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.position}</h3>
-                      <p className="text-indigo-600 dark:text-indigo-400">{exp.company}</p>
+                      <a href={exp.companyURL} className="text-indigo-600 dark:text-indigo-400 underline">{exp.company}</a>
                     </div>
                     <span className="text-gray-500 dark:text-gray-400">{exp.period}</span>
                   </div>

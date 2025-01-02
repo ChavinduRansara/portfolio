@@ -17,7 +17,7 @@ function App() {
       </main>
       <footer className="bg-gray-50 dark:bg-gray-800 py-8 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center text-gray-600 dark:text-gray-400">
-          <p>© {new Date().getFullYear()} John Doe. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Chavindu Ransara. All rights reserved.</p>
         </div>
       </footer>
       <ChatWidget />
