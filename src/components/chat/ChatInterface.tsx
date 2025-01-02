@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Send, X } from 'lucide-react';
 import ChatMessage from './ChatMessage';
+import LoadingDots from './LoadingDots';
 
 interface Message {
   content: string;
@@ -14,10 +15,12 @@ interface ChatInterfaceProps {
 
 export default function ChatInterface({ isOpen, onClose }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([
-    { content: "Hi! I'm John's AI assistant. How can I help you today?", isBot: true }
+    { content: "Hi! I'm Chavindu's AI assistant. How can I help you today?", isBot: true }
   ]);
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatBotUrl = import.meta.env.VITE_CHATBOT_API_URL as string;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -32,15 +35,20 @@ export default function ChatInterface({ isOpen, onClose }: ChatInterfaceProps) {
     if (!input.trim()) return;
 
     setMessages(prev => [...prev, { content: input, isBot: false }]);
-    
-    setTimeout(() => {
-      setMessages(prev => [...prev, {
-        content: "Thanks for your message! This is a placeholder response. Integrate your AI service here.",
-        isBot: true
-      }]);
-    }, 1000);
-
     setInput('');
+    setIsLoading(true);
+
+    const res = await fetch(chatBotUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ query: input })
+    })
+
+    const data = await res.json();
+    setIsLoading(false);
+    setMessages(prev => [...prev, { content: data.data.result, isBot: true }]);
   };
 
   if (!isOpen) return null;
@@ -49,7 +57,7 @@ export default function ChatInterface({ isOpen, onClose }: ChatInterfaceProps) {
     <div className="fixed md:bottom-24 md:right-6 md:w-96 w-full h-[100dvh] md:h-auto md:max-h-[calc(100vh-120px)] md:min-h-[400px] inset-0 md:inset-auto bg-gray-800 md:rounded-lg shadow-xl flex flex-col z-50">
       {/* Header */}
       <div className="p-4 border-b border-gray-700 flex justify-between items-center">
-        <h3 className="text-lg font-semibold text-white">Chat with AI Assistant</h3>
+        <h3 className="text-lg font-semibold text-white">Ask anything about Chavindu</h3>
         <button 
           onClick={onClose}
           className="md:hidden text-gray-400 hover:text-white transition-colors"
@@ -63,6 +71,13 @@ export default function ChatInterface({ isOpen, onClose }: ChatInterfaceProps) {
         {messages.map((message, index) => (
           <ChatMessage key={index} {...message} />
         ))}
+        {isLoading && (
+          <div className="flex justify-start mb-4">
+            <div className="max-w-[80%] px-4 py-2 rounded-lg bg-gray-700">
+              <LoadingDots />
+            </div>
+          </div>
+        )}
         <div ref={messagesEndRef} />
       </div>
 
