@@ -9,7 +9,10 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-4px)' }
         }
-      }
+      },
+      screens: {
+        'custom-lg': '1080px', // Larger than xl
+      },
     },
   },
   plugins: [],

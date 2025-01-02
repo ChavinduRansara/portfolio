@@ -6,7 +6,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const linkedin = import.meta.env.VITE_LINKEDIN_URL as string;
   const github = import.meta.env.VITE_GITHUB_URL as string;
-  const email = import.meta.env.VITE_EMAIL as string;
+  const email = import.meta.env.VITE_GMAIL as string;
 
   return (
     <header className="fixed w-full top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-colors">
@@ -37,7 +37,7 @@ export default function Header() {
             <a href={linkedin} className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
               <Linkedin size={20} />
             </a>
-            <a href={email} className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            <a href={`mailto:${email}`} className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
               <Mail size={20} />
             </a>
             <ThemeToggle />
