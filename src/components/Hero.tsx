@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="about"
-      className="pt-32 pb-32 bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 transition-colors"
+      className="pt-44 pb-32 bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col custom-lg:flex-row items-center justify-center custom-lg:justify-between gap-12">
@@ -18,12 +18,12 @@ export default function Hero() {
               </span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              A passionate{" "}
-              <span className="inline-block">
+              <div className="pb-2">
                 <AnimatedText />
-              </span>{", "}
-              crafting beautiful and functional software solutions. Specialized in
-              React, Angular, Spring Boot, Node.js, and modern web technologies.
+              </div>
+              Passionate about designing and developing innovative software
+              solutions that blend efficiency, creativity, and cutting-edge
+              technology to solve real-world challenges.
             </p>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center custom-lg:justify-start">
