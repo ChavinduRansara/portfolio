@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import java from '../assets/Java.svg';
-import angular from '../assets/angular.svg';
+import angular from '../assets/Angular.svg';
 import cpp from '../assets/cpp.svg';
 import express from '../assets/Express.svg';
 import flutter from '../assets/Flutter.svg';
