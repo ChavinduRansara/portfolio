@@ -1,5 +1,6 @@
 import { ArrowRight, Download } from "lucide-react";
 import profileImage from "../assets/profile.jpg";
+import AnimatedText from "./AnimatedText";
 
 export default function Hero() {
   return (
@@ -17,10 +18,14 @@ export default function Hero() {
               </span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              A passionate full-stack developer crafting beautiful and
-              functional web experiences. Specialized in React, Angular, Spring
-              Boot, Node.js, and modern web technologies.
+              A passionate{" "}
+              <span className="inline-block">
+                <AnimatedText />
+              </span>{", "}
+              crafting beautiful and functional software solutions. Specialized in
+              React, Angular, Spring Boot, Node.js, and modern web technologies.
             </p>
+
             <div className="flex flex-col md:flex-row gap-4 justify-center custom-lg:justify-start">
               <a
                 href="#contact"
