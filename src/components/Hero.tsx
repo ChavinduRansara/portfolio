@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="about"
-      className="pt-44 pb-32 bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 transition-colors"
+      className="pt-36 pb-32 bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col custom-lg:flex-row items-center justify-center custom-lg:justify-between gap-12">
