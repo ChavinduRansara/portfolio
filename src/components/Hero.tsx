@@ -1,4 +1,5 @@
 import { ArrowRight, Download } from "lucide-react";
+import profileImage from "../assests/Profile.jpg";
 
 export default function Hero() {
   return (
@@ -46,7 +47,7 @@ export default function Hero() {
           </div>
           <div className="flex-1 flex justify-center order-first custom-lg:order-none">
             <img
-              src="/assests/images/Profile.jpg"
+              src={profileImage}
               alt="Profile"
               className="w-48 h-48 md:w-60 md:h-60 custom-lg:w-96 custom-lg:h-96 rounded-full shadow-2xl dark:shadow-indigo-500/10"
             />
