@@ -17,7 +17,7 @@ Welcome to my personal portfolio website! This repository contains the source co
 - **AI Integration**: RAG-based chatbot deployed on Hugging Face.
 - **Deployment**: Hosted using Vercel
 
-## Getting Started
+## Live Link
 
 The portfolio is live and accessible at the following link:
 
@@ -28,7 +28,7 @@ The portfolio is live and accessible at the following link:
 For any inquiries or feedback, reach out to me:
 
 - **Email**: [Mail to Chavindu](mailto:hpchavinduransara@gmail.com)
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/chavindu-ransara/)
+- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/chavindu-ransara/)
 
 ---
 
