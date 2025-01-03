@@ -39,7 +39,7 @@ export default function Experience() {
                     </div>
                     <span className="text-gray-500 dark:text-gray-400">{exp.period}</span>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{exp.description}</p>
+                  <p className="text-gray-600 text-justify dark:text-gray-300 mb-4">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
                       <span
