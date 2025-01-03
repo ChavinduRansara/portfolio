@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import java from '../assets/tech/Java.svg';
-import angular from '../assets/tech/angular.svg';
-import cpp from '../assets/tech/cpp.svg';
-import express from '../assets/tech/Express.svg';
-import flutter from '../assets/tech/Flutter.svg';
-import html from '../assets/tech/HTML5.svg';
-import javascript from '../assets/tech/JavaScript.svg';
-import mysql from '../assets/tech/MySQL.svg';
-import nodejs from '../assets/tech/Node.js.svg';
-import oracle from '../assets/tech/Oracle.svg';
-import postgresql from '../assets/tech/PostgresSQL.svg';
-import python from '../assets/tech/Python.svg';
-import react from '../assets/tech/React.svg';
-import spring from '../assets/tech/spring-boot.svg';
-import tailwind from '../assets/tech/Tailwind CSS.svg';
+import java from '../assets/Java.svg';
+import angular from '../assets/angular.svg';
+import cpp from '../assets/cpp.svg';
+import express from '../assets/Express.svg';
+import flutter from '../assets/Flutter.svg';
+import html from '../assets/HTML5.svg';
+import javascript from '../assets/JavaScript.svg';
+import mysql from '../assets/MySQL.svg';
+import nodejs from '../assets/Node.js.svg';
+import oracle from '../assets/Oracle.svg';
+import postgresql from '../assets/PostgresSQL.svg';
+import python from '../assets/Python.svg';
+import react from '../assets/React.svg';
+import spring from '../assets/spring-boot.svg';
+import tailwind from '../assets/Tailwind CSS.svg';
 
 interface Technology {
   name: string;
