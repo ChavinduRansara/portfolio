@@ -1,5 +1,5 @@
 import { ArrowRight, Download } from "lucide-react";
-import profileImage from "../assests/Profile.jpg";
+import profileImage from "../assets/profile.jpg";
 
 export default function Hero() {
   return (

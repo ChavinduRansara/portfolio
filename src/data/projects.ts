@@ -1,8 +1,8 @@
 import { Project } from '../components/projects/types';
-import sarImage from '../assests/sar.png';
-import shuttleImage from '../assests/shuttle.png';
-import agricurImage from '../assests/agricur.png';
-import speedImage from '../assests/speed.jpeg';
+import sarImage from '../assets/sar.png';
+import shuttleImage from '../assets/shuttle.png';
+import agricurImage from '../assets/agricur.png';
+import speedImage from '../assets/speed.jpeg';
 
   
   export const projects: Project[] = [
