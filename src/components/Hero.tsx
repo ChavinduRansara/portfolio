@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="about"
-      className="pt-36 pb-32 bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 transition-colors"
+      className="min-h-screen flex items-center py-32 bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col custom-lg:flex-row items-center justify-center custom-lg:justify-between gap-12">
@@ -41,7 +41,7 @@ export default function Hero() {
                 View my work
               </a>
               <a
-                href="/path/to/your/cv.pdf"
+                href= {import.meta.env.VITE_RESUME_URL}
                 download
                 className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-700 rounded-lg hover:border-indigo-600 dark:hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 text-gray-600 dark:text-gray-300 transition-colors"
               >
