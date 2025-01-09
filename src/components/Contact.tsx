@@ -1,4 +1,5 @@
-import { Mail, Linkedin } from 'lucide-react';
+import { Mail, Linkedin, Loader2 } from 'lucide-react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Contact() {
   const email = import.meta.env.VITE_GMAIL as string;
   const linkedin = import.meta.env.VITE_LINKEDIN_URL as string;
+  const [isSending, setIsSending] = useState(false);
 
   const {
     register,
@@ -17,6 +19,7 @@ export default function Contact() {
   const backendUrl = import.meta.env.VITE_BACKEND_URL as string;
 
   const onSubmit = async (data: any) => {
+    setIsSending(true);
     try {
       const response = await fetch(`${backendUrl}/api/send`, {
         method: 'POST',
@@ -34,6 +37,8 @@ export default function Contact() {
       }
     } catch (error) {
       toast.error('An error occurred. Please try again later.');
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -101,6 +106,7 @@ export default function Contact() {
                   id="name"
                   {...register('name', { required: 'Name is required' })}
                   className="w-full px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                  disabled={isSending}
                 />
                 {errors.name?.message && <p className="text-red-500 text-sm mt-1">{String(errors.name.message)}</p>}
               </div>
@@ -116,6 +122,7 @@ export default function Contact() {
                     pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email address' },
                   })}
                   className="w-full px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                  disabled={isSending}
                 />
                 {errors.email?.message && <p className="text-red-500 text-sm mt-1">{String(errors.email.message)}</p>}
               </div>
@@ -128,14 +135,23 @@ export default function Contact() {
                   rows={4}
                   {...register('message', { required: 'Message is required' })}
                   className="w-full px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                  disabled={isSending}
                 ></textarea>
                 {errors.message?.message && <p className="text-red-500 text-sm mt-1">{String(errors.message.message)}</p>}
               </div>
               <button
                 type="submit"
-                className="w-full px-6 py-2.5 sm:py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                disabled={isSending}
+                className="w-full px-6 py-2.5 sm:py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
-                Send Message
+                {isSending ? (
+                  <>
+                    <Loader2 size={20} className="animate-spin mr-2" />
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>
