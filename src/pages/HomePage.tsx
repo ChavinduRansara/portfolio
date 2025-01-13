@@ -7,6 +7,7 @@ import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Header from '../components/Header';
 import ChatWidget from '../components/chat/ChatWidget';
+import Certificates from '../components/Certificates';
 
 export default function HomePage() {
   const location = useLocation();
@@ -30,6 +31,7 @@ export default function HomePage() {
         <Projects />
         <Experience />
         <TechStack />
+        <Certificates />
         <Contact />
       </main>
       <footer className="bg-gray-50 dark:bg-gray-800 py-8 transition-colors">

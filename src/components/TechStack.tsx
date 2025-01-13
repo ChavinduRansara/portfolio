@@ -56,7 +56,7 @@ export default function TechStack() {
     : technologies.filter(tech => tech.category === activeCategory);
 
   return (
-    <section id="tech stack" className="py-32 bg-gray-50 dark:bg-gray-800 transition-colors">
+    <section id="tech stack" className="pt-32 bg-gray-50 dark:bg-gray-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-2 md:mb-4 text-gray-900 dark:text-white">Tech Stack</h2>
